@@ -1,4 +1,5 @@
 alert("Сравнение чисел")
+
 const number1 = Number(prompt("ваше первое число?"));
 const number2 = Number(prompt("ваше второе число?"));
 if (number1 === number2) {
