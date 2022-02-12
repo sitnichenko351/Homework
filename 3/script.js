@@ -1,16 +1,29 @@
-alert("таможння в аквопарк")
 
-const age = Number(prompt("сколько вам лет?"));
-if (age < 12) {
-    if (age < 6) {
-        alert("вы слишком маленькие вам нельзя")
-    }
-    else {
-        alert("нужно разрешение радитилей")
-    } 
-}else if ( 12 < age < 60) {
-    alert("всё впорядке проходите")
-}else if (age > 60) {
-    alert("вы слишком старый вам нельзя ")
-} 
 
+function AgeFun(){
+    alert("Приветствую пользователь")
+    const AgeFun = Number(prompt("Введите ваш возраст"));
+    return AgeFun;
+
+}
+function NameFun(){
+    const NameFun = prompt("Введите ваше имя");
+    return NameFun;
+}
+const Age = AgeFun();
+const Name = NameFun();
+
+function greetings1(){
+    alert ("Приветствую"+" "+Name);
+}
+function greetings2(){
+    alert ("Приветствую"+" "+Name+" ' "+(Age)+" '");
+}
+
+
+if (Age > 30){
+    greetings1();
+}
+else {
+    greetings2();    
+}
