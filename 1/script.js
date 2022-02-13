@@ -1,13 +1,31 @@
+const LOGIN = "ADMIN";
+const PASSWORD = "1q2w3e";
 
-function getSum(){
-    const number1 = Number(prompt("ваше первое число?"));
-    const number2 = Number(prompt("ваше второе число?"));
-    let sum = number1 + number2;
-    alert(sum)
-    return sum;
+const authorize = () => {
+    let userPassword;
+    let userLogin;
+    let isAuthSuccess = false;
+    do {
+        userLogin = prompt("Логин:");
+        if(!userLogin) {
+            alert ("Введите логин");
+            continue
+        }
 
-}
-const functNumb1 = getSum();
-const functNumb2 = getSum();
-alert (functNumb1)
-alert (functNumb2)
+        userPassword = prompt("Пароль");
+        if(!userPassword) {
+            alert("Введите пароль");
+            continue;
+        }
+
+        if (userPassword === PASSWORD || userLogin === LOGIN){
+            isAuthSuccess = true;
+        } else {
+            alert ("Данные неверны!")
+        }
+
+    } while (isAuthSuccess);
+    alert("Welcome")
+};
+
+authorize();
