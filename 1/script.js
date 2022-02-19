@@ -1,41 +1,22 @@
-const LOGIN = "ADMIN";
-const PASSWORD = "1q2w3e";
+function getSchedule() {
+  let time;
+  let task;
 
-const authorize = () => {
-  let userPassword;
-  let userLogin;
-
-  let i = 0;
-  let y = 3;
+  let schedule = {};
 
   do {
-    userLogin = prompt("Логин:");
-    if (!userLogin) {
-      alert("Введите логин");
-      continue;
-    }
+    time = prompt("Время");
+    task = prompt("Задача");
 
-    userPassword = prompt("Пароль:");
-    if (!userPassword) {
-      alert("Введите пароль");
-      continue;
+    if (time === null || task === null) {
+      break;
     }
+    schedule[time] = task;
+    
+  } while (true);
+  return schedule;
 
-    if (userPassword === PASSWORD || userLogin === LOGIN) {
-      i = 6;
-    } else {
-      alert("Данные неверны!");
-      i++
-      y = (3-i);
-      alert ("у вас осталось " + y + " попыток");
-    }
-  } while (i < 3);
+}
 
-  if (i == 3){
-    alert ("у вас закончелись попытки")
-  } else{
-    alert ("Welcome")
-  }
-  
-};
-authorize();
+const schedule = getSchedule();
+console.log(`schedule`, schedule)
