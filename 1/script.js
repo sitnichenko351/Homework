@@ -2,30 +2,40 @@ const LOGIN = "ADMIN";
 const PASSWORD = "1q2w3e";
 
 const authorize = () => {
-    let userPassword;
-    let userLogin;
-    let isAuthSuccess = false;
-    do {
-        userLogin = prompt("Логин:");
-        if(!userLogin) {
-            alert ("Введите логин");
-            continue
-        }
+  let userPassword;
+  let userLogin;
 
-        userPassword = prompt("Пароль");
-        if(!userPassword) {
-            alert("Введите пароль");
-            continue;
-        }
+  let i = 0;
+  let y = 3;
 
-        if (userPassword === PASSWORD || userLogin === LOGIN){
-            isAuthSuccess = true;
-        } else {
-            alert ("Данные неверны!")
-        }
+  do {
+    userLogin = prompt("Логин:");
+    if (!userLogin) {
+      alert("Введите логин");
+      continue;
+    }
 
-    } while (isAuthSuccess);
-    alert("Welcome")
+    userPassword = prompt("Пароль:");
+    if (!userPassword) {
+      alert("Введите пароль");
+      continue;
+    }
+
+    if (userPassword === PASSWORD || userLogin === LOGIN) {
+      i = 6;
+    } else {
+      alert("Данные неверны!");
+      i++
+      y = (3-i);
+      alert ("у вас осталось " + y + " попыток");
+    }
+  } while (i < 3);
+
+  if (i == 3){
+    alert ("у вас закончелись попытки")
+  } else{
+    alert ("Welcome")
+  }
+  
 };
-
 authorize();
