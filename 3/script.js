@@ -1,29 +1,23 @@
-
-
-function AgeFun(){
-    alert("Приветствую пользователь")
-    const AgeFun = Number(prompt("Введите ваш возраст"));
-    return AgeFun;
-
-}
-function NameFun(){
-    const NameFun = prompt("Введите ваше имя");
-    return NameFun;
-}
-const Age = AgeFun();
-const Name = NameFun();
-
-function greetings1(){
-    alert ("Приветствую"+" "+Name);
-}
-function greetings2(){
-    alert ("Приветствую"+" "+Name+" ' "+(Age)+" '");
+function findExcess(integers) {
+    let evenArr = [];
+    let oddArr = [];
+    
+    for (let i = 0; i < integers.length; i++) {
+        if (integers[i] % 2 === 0) {
+            evenArr.push(integers[i]);
+        } else {
+            oddArr.push(integers[i]);
+        }
+    }
+    if (evenArr.length > oddArr.length) {
+        console.log(oddArr[0]);
+    } else {
+        console.log(evenArr[0]);
+    }
 }
 
-
-if (Age > 30){
-    greetings1();
-}
-else {
-    greetings2();    
-}
+findExcess([0, 1, 2]); 
+findExcess([1, 2, 3]); 
+findExcess([2, 6, 8, 10, 3]); 
+findExcess([0, 0, 3, 0, 0]); 
+findExcess([1, 1, 0, 1, 1]); 

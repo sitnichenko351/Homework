@@ -1,22 +1,16 @@
-function getSchedule() {
-  let time;
-  let task;
+const countTrue = (arr) => {
+  let counter = 0;
 
-  let schedule = {};
-
-  do {
-    time = prompt("Время");
-    task = prompt("Задача");
-
-    if (time === null || task === null) {
-      break;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i]) {
+      counter++;
     }
-    schedule[time] = task;
-    
-  } while (true);
-  return schedule;
+  }
+  
+  console.log(counter);
+};
 
-}
-
-const schedule = getSchedule();
-console.log(`schedule`, schedule)
+countTrue([true, false, false, true, false, true, false, false, true,]); 
+countTrue([true, false, false, true, false]); 
+countTrue([false, false, false, false]); 
+countTrue([]); 

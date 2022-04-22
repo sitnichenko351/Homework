@@ -1,17 +1,24 @@
-function getSalariesSum(salaries) {
-    let result = 0;
-    for (let name in salaries) {
-        result += Number(salaries[name]) * 100;
+const getOccurrencesCount = (arr) => {
+    const res = {};
+
+    for (let item of arr) {
+        if (!res[item]) {
+            res[item] = 1;
+        } else {
+            res[item] += 1;
+        }
     }
-    return result / 100;
-}
-const salaries = {
-    John: "4300.00",
-    Ann: "5700.40",
-    Pete: "4900.95",
+    console.log(res);
 };
 
-const res = getSalariesSum(salaries);
-
-
-alert (res);
+getOccurrencesCount(["a", "v", "a", "b", "b"]);
+getOccurrencesCount([
+    "apples",
+    "oranges",
+    "pears",
+    "pears",
+    "apples",
+    "oranges",
+    "oranges",
+    "pears",
+  ]);
