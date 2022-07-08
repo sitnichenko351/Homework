@@ -1,24 +1,25 @@
-const getOccurrencesCount = (arr) => {
-    const res = {};
+const container = document.getElementById("container");
 
-    for (let item of arr) {
-        if (!res[item]) {
-            res[item] = 1;
-        } else {
-            res[item] += 1;
-        }
+const renderGreeting = (isInitial, visitsCount = 0) => {
+    const greetingElement = document.createElement("p");
+    const visitsCountElement = document.createElement("p");
+    greetingElement.innerText = "Добро пожаловать";
+    visitsCountElement.innerText = `Вы заходили раз: ${visitsCount}`;
+
+    container.append(greetingElement);
+
+    if (isInitial) {
+        container.append(visitsCountElement);
     }
-    console.log(res);
 };
 
-getOccurrencesCount(["a", "v", "a", "b", "b"]);
-getOccurrencesCount([
-    "apples",
-    "oranges",
-    "pears",
-    "pears",
-    "apples",
-    "oranges",
-    "oranges",
-    "pears",
-  ]);
+if (localStorage.getItem("visits")) {
+    const visits = JSON.parse(localStorage.getItem("visits"));
+    const updatedVisits = visits + 1;
+    localStorage.setItem("visits1", updatedVisits);
+
+    renderGreeting(true, updatedVisits);
+}   else {
+    localStorage.setItem("visits", 1);
+    renderGreeting(false);
+}
